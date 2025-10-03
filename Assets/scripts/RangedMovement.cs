@@ -8,13 +8,14 @@ public class RangedMovement : MonoBehaviour
 
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerPosition;
-    public float speed = 0.75f;
+    private float speed = 0.75f;
 
-    public float range = 10f;
+    private float range = 10f;
 
     [SerializeField] bool inRange;
 
-    public float fireCD = 3;
+    public int fireCD = 3;
+    [SerializeField]private float currentCd;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class RangedMovement : MonoBehaviour
         {
             projectilePrefab = Resources.Load<GameObject>("ProjectilePrefab");
         }
+        currentCd = fireCD;
     }
 
     // Update is called once per frame
@@ -48,14 +50,14 @@ public class RangedMovement : MonoBehaviour
 
         if (inRange)
         {
-            if (fireCD >= 3)
+            if (currentCd >= fireCD)
             {
                 Shoot();
-                fireCD = 0;
+                currentCd = 0;
             }
             else
             {
-                fireCD += Time.deltaTime;
+                currentCd += Time.deltaTime;
             }
             
         }
@@ -81,4 +83,15 @@ public class RangedMovement : MonoBehaviour
             rotation: transform.rotation,
             parent: transform);
     }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
 }
+

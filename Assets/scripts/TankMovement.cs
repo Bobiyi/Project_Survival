@@ -26,4 +26,14 @@ public class TnakMovement : MonoBehaviour
                 target: playerPosition.transform.position,
                 maxDistanceDelta: speed * Time.deltaTime);
         }
+
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
     }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+}
