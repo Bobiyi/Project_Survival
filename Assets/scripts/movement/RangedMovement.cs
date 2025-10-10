@@ -8,14 +8,14 @@ public class RangedMovement : MonoBehaviour
 
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerPosition;
-    private float speed = 0.75f;
+    [SerializeField] private float speed = 0.75f;
 
-    private float range = 10f;
+    [SerializeField] private float range = 10f;
 
     [SerializeField] bool inRange;
 
-    public int fireCD = 3;
-    [SerializeField]private float currentCd;
+    [SerializeField] private int fireCD = 3;
+    [SerializeField] private float currentCd;
 
     void Start()
     {
