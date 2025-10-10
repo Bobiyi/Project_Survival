@@ -15,13 +15,6 @@ public class CommonSpawnerScript : MonoBehaviour
         InvokeRepeating(methodName:"spawn", time:0f, repeatRate:spawnTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     private void spawn()
     {
         Instantiate(commonEnemy, transform.position, Quaternion.identity);

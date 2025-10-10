@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3271194787025047392}
   - component: {fileID: 9119246330100058719}
   - component: {fileID: 2524591017260169961}
-  - component: {fileID: 6530523829185748981}
+  - component: {fileID: 5176162314030896785}
   m_Layer: 6
   m_Name: CommonEnemy
   m_TagString: Untagged
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerScript: {fileID: 0}
   speed: 1.75
 --- !u!70 &9119246330100058719
 CapsuleCollider2D:
@@ -165,7 +164,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6530523829185748981
+--- !u!114 &5176162314030896785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,6 +173,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2864126995660985376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06125354f924c9d4cb949408df1f16f6, type: 3}
+  m_Script: {fileID: 11500000, guid: e484afc6b749bdd4691878be7d6263b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPosition: {fileID: 0}
+  sprite: {fileID: 0}

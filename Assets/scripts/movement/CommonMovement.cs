@@ -7,7 +7,7 @@ public class CommonMovement : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    [SerializeField] private PlayerManager playerScript;
+    //[SerializeField] private PlayerManager playerScript;
 
     public float speed = 1f;
 
@@ -17,7 +17,7 @@ public class CommonMovement : MonoBehaviour
     {
         if (player == null)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindWithTag("Player");
         }
     }
 
