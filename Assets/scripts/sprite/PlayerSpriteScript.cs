@@ -23,7 +23,7 @@ public class PlayerSpriteScript : MonoBehaviour
         {
             sprite.flipX = true;
         }
-        else
+        else if(Input.GetKey(KeyCode.D))
         {
             sprite.flipX = false;
         }

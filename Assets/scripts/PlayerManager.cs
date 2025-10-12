@@ -19,17 +19,6 @@ public class PlayerManager : MonoBehaviour
     public int Armor { get => armor; set => armor = value; }
     public int XP { get => xp; set => xp = value; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     [ContextMenu("Take Damage")]
     public void TakeDamage(int damageTaken)
