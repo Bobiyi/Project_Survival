@@ -52,7 +52,7 @@ public class ProjectileMovement : MonoBehaviour
             b: LatestPosition.position
             );
 
-        if (distanceToPlayer > 20f)
+        if (distanceToPlayer > 25f)
         {
             Destroy(gameObject);
 
