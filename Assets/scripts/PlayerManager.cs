@@ -10,9 +10,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private int armor = 1;
     [SerializeField] private int xp = 0;
 
-    [SerializeField] private ParticleSystem particles;
+     private ParticleSystem particles;
 
-    [SerializeField] private SpriteRenderer sprite;
+     private SpriteRenderer sprite;
 
     public int Health { get => health; }
     public int Damage { get => damage; set => damage = value; }

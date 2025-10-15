@@ -9,9 +9,9 @@ public class CommonMovement : MonoBehaviour
 
     //[SerializeField] private PlayerManager playerScript;
 
-    public float speed = 1f;
+    [SerializeField] private float speed = 1f;
 
-
+    public float Speed { get => speed; set => speed = value; }
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class CommonMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(
             current: transform.position,
             target: player.transform.position,
-            maxDistanceDelta: speed * Time.deltaTime);
+            maxDistanceDelta: Speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,13 +39,4 @@ public class CommonMovement : MonoBehaviour
         } 
     }
 
-    public void setSpeed(float speed)
-    {
-        this.speed = speed;
-    }
-
-    public float getSpeed()
-    {
-        return speed;
-    }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovementSystem : MonoBehaviour
 {
 
-    [SerializeField]private float speed = 1f;
+    [SerializeField] private float speed = 1f;
 
     public float Speed { get => speed; set => speed = value; }
 

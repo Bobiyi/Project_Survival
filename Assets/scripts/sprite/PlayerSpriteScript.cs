@@ -19,11 +19,11 @@ public class PlayerSpriteScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             sprite.flipX = true;
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if(Input.GetKeyDown(KeyCode.D))
         {
             sprite.flipX = false;
         }

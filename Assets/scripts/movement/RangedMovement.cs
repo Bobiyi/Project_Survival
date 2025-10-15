@@ -14,8 +14,8 @@ public class RangedMovement : MonoBehaviour
 
     [SerializeField] bool inRange;
 
-    [SerializeField] private int fireCD = 3;
-    [SerializeField] private float currentCd;
+    [SerializeField] private float fireCD = 3;
+    private float currentCd;
 
     void Start()
     {
