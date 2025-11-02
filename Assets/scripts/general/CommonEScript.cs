@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CommonMovement : MonoBehaviour
@@ -11,13 +12,23 @@ public class CommonMovement : MonoBehaviour
 
     [SerializeField] private float speed = 1f;
 
+    [SerializeField] private float health = 50f;
+
+    [SerializeField] private GameObject XPpref;
+
     public float Speed { get => speed; set => speed = value; }
+    public float Health { get => health; set => health = value; }
 
     void Start()
     {
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
+        }
+
+        if (XPpref==null)
+        {
+            XPpref = Resources.Load<GameObject>("xp");
         }
     }
 
@@ -36,7 +47,10 @@ public class CommonMovement : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Destroy(gameObject);
+
+            Instantiate(XPpref, 
+                position: new Vector2(transform.position.x,transform.position.y - 0.75f), 
+                rotation: Quaternion.identity);
         } 
     }
-
 }
