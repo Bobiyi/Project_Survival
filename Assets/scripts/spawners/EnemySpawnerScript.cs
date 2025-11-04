@@ -5,7 +5,7 @@ using UnityEngine;
 public class CommonSpawnerScript : MonoBehaviour
 {
     [Header("Prefab / Timing")]
-    [SerializeField] private GameObject commonEnemy;
+    [SerializeField] private GameObject Enemy;
     [SerializeField] private int spawnTime = 3;
 
     [Header("Spawn around player")]
@@ -25,9 +25,9 @@ public class CommonSpawnerScript : MonoBehaviour
 
     private void spawn()
     {
-        if (commonEnemy == null)
+        if (Enemy == null)
         {
-            Debug.LogWarning("[CommonSpawnerScript] commonEnemy is not assigned.", this);
+            Debug.LogWarning("[EnemySpawnerScript] Enemy is not assigned.");
             return;
         }
 
@@ -37,7 +37,7 @@ public class CommonSpawnerScript : MonoBehaviour
         Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * spawnDistance;
         Vector2 spawnPos = center + offset;
 
-        Instantiate(commonEnemy, spawnPos, Quaternion.identity);
+        Instantiate(Enemy, spawnPos, Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()

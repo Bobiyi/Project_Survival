@@ -80,8 +80,7 @@ public class RangedMovement : MonoBehaviour
         Instantiate(
             original: projectilePrefab,
             position: transform.position,
-            rotation: transform.rotation,
-            parent: transform);
+            rotation: transform.rotation);
     }
 
     public void setSpeed(float speed)
@@ -92,6 +91,22 @@ public class RangedMovement : MonoBehaviour
     public float getSpeed()
     {
         return speed;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+
+        if (inRange)
+        {
+            Gizmos.color = Color.green;
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+        }
+
+
+            Gizmos.DrawLine(from: transform.position, to: playerPosition.transform.position);
     }
 }
 
