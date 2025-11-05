@@ -6004,6 +6004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
+  isFlipped: 0
 --- !u!1 &1903158903
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,9 +6050,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whipProjectile: {fileID: 6014389782532629805, guid: ec563b8cb8c1ff34ca02c981eb8403e0, type: 3}
-  projectileInbetween: 0.3
-  burstInbetween: 2
-  projectileCount: 2
+  projectileInbetween: 0.34
+  burstInbetween: 3
+  projectileCount: 3
+  character: {fileID: 984512679}
 --- !u!1001 &1908053607
 PrefabInstance:
   m_ObjectHideFlags: 0

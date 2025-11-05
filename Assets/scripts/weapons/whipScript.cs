@@ -17,7 +17,7 @@ public class whipScript : MonoBehaviour
 
     private void Start()
     {
-        currentOnScreen = onScreenTime;
+        currentOnScreen = 0;
     }
 
     // Update is called once per frame
