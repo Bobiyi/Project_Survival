@@ -13,14 +13,15 @@ public class MovementSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position =
-            new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * Speed * Time.deltaTime,
-                        transform.position.y + Input.GetAxisRaw("Vertical") * Speed * Time.deltaTime);
+        Vector2 input = new Vector2(x: Input.GetAxisRaw("Horizontal"), y: Input.GetAxisRaw("Vertical"));
+
+        if (input.sqrMagnitude > 1f)
+        {
+            input.Normalize();
+        }
+
+        Vector2 movement = input * speed * Time.deltaTime;
+        transform.position = (Vector2)transform.position + movement;
+        
     }
-
-
-    
-
-
-
 }

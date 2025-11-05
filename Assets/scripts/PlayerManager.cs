@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -10,9 +11,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private int armor = 1;
     [SerializeField] private int xp = 0;
 
-     private ParticleSystem particles;
+     /**private ParticleSystem particles;
 
-     private SpriteRenderer sprite;
+     private SpriteRenderer sprite;*/
+
 
     public int Health { get => health; }
     public int Damage { get => damage; set => damage = value; }
@@ -20,12 +22,13 @@ public class PlayerManager : MonoBehaviour
     public int XP { get => xp; set => xp = value; }
 
 
-    [ContextMenu("Take Damage")]
     public void TakeDamage(int damageTaken)
     {
-        sprite.color = Color.red;
+        //sprite.color = Color.red;
 
         health = health - (damageTaken - armor);
+
+        Debug.Log("Damage recieved", this);
     }
 
 }
