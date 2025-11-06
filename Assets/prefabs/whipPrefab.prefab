@@ -91,9 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c34b783d2bbec4291513c8499106ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  area: 0
-  level: 0
+  damage: 10
+  areaMultiplier: 1
   onScreenTime: 0.5
   boxCollider: {fileID: 452980485551629171}
   sprite: {fileID: 2362397432563905059}

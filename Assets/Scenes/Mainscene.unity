@@ -5737,6 +5737,7 @@ MonoBehaviour:
   burstInbetween: 3
   projectileCount: 3
   character: {fileID: 984512679}
+  level: 0
 --- !u!1 &2113272108
 GameObject:
   m_ObjectHideFlags: 0

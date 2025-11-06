@@ -9,6 +9,8 @@ public class WhipManager : MonoBehaviour
     [SerializeField] private float burstInbetween;
     [SerializeField] private float projectileCount;
     [SerializeField] private GameObject character;
+    [SerializeField] private float level;
+
 
     private float currentProjectileInbetween;
     private float currentBurstInbetween;
@@ -75,8 +77,8 @@ public class WhipManager : MonoBehaviour
         //kari flippelt -e?
         mainCharacterFLipped = character.GetComponentInChildren<PlayerSpriteScript>().getIsFlipped();
 
-        yOffset = alreadyHit * 0.7f;
-        xOffset = 2f;
+        yOffset = alreadyHit * 0.7f + 1.5f;
+        xOffset = 2.3f;
 
         //arra üt ammerre néz a kari
         if (mainCharacterFLipped)

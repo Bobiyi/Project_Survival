@@ -6,8 +6,7 @@ using UnityEngine;
 public class whipScript : MonoBehaviour
 {
     [SerializeField] private float damage;
-    [SerializeField] private float area;
-    [SerializeField] private float level;
+    [SerializeField] private float areaMultiplier;
     [SerializeField] private float onScreenTime;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private SpriteRenderer sprite;
@@ -18,6 +17,10 @@ public class whipScript : MonoBehaviour
     private void Start()
     {
         currentOnScreen = 0;
+        Vector2 whipSize = new Vector2(
+            x: 4.5f * areaMultiplier, 
+            y: 2f * areaMultiplier);
+        transform.localScale = whipSize;
     }
 
     // Update is called once per frame
