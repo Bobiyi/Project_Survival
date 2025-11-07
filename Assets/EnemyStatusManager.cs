@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class EnemyStatusManager : MonoBehaviour
 {
+    [SerializeField] private float hp;
+    [SerializeField] private float speed;
+    //[SerializeField] private float hp;
+
     private bool garlicHasFirstHit;
 
     public bool GarlicHasFirstHit { get => garlicHasFirstHit; set => garlicHasFirstHit = value; }
+    public float Speed { get => speed; set => speed = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +23,13 @@ public class EnemyStatusManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Damaged(float damage)
+    {
+        hp -= damage; 
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

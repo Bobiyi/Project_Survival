@@ -8,7 +8,7 @@ public class RangedMovement : MonoBehaviour
 
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerPosition;
-    [SerializeField] private float speed = 0.75f;
+    private float speed;
 
     [SerializeField] private float range = 10f;
 
@@ -19,6 +19,7 @@ public class RangedMovement : MonoBehaviour
 
     void Start()
     {
+        speed = GetComponent<EnemyStatusManager>().Speed;
         if (playerPosition == null)
         {
             playerPosition = GameObject.FindWithTag("Player");

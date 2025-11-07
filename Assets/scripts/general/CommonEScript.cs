@@ -10,17 +10,16 @@ public class CommonMovement : MonoBehaviour
 
     //[SerializeField] private PlayerManager playerScript;
 
-    [SerializeField] private float speed = 1f;
-
-    [SerializeField] private float health = 50f;
+    private float speed;
 
     [SerializeField] private GameObject XPpref;
 
     public float Speed { get => speed; set => speed = value; }
-    public float Health { get => health; set => health = value; }
 
     void Start()
     {
+        speed = GetComponent<EnemyStatusManager>().Speed;
+
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");

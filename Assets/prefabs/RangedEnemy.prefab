@@ -147,7 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 925287311670850120, guid: 09b96a17df3da2341a2de81c3eab7e58, type: 3}
   playerPosition: {fileID: 0}
-  speed: 0.75
   range: 8
   inRange: 1
   fireCD: 3
@@ -190,3 +189,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c0b6e52a9830b45843c2e4c5ee63b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 30
+  speed: 0.75
