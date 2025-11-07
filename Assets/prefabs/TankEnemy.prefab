@@ -190,3 +190,4 @@ MonoBehaviour:
   hp: 150
   speed: 0.67
   XPpref: {fileID: 3544467816248318788, guid: b13fc7df8df62ad4a8b7d47bbfd2912b, type: 3}
+  sprite: {fileID: 296580728971387077}
