@@ -35,7 +35,8 @@ public class GarlicScript : MonoBehaviour
             sprite.transform.localScale = new Vector2(0,0);
         }
 
-        
+
+
 
     }
 
@@ -48,32 +49,22 @@ public class GarlicScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            Damage(collision);
-        }
-    }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy")){
+            bool hasHitAlready = collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit;
 
-    void Damage(Collider2D collision)
-    {
-        bool hasHitAlready = collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit;
-        //ha first time hit
-        if (hasHitAlready)
-        {
-            if (currentDmgInbetweenTimer >= dmgInbetweenTimer) 
-            { 
-                currentDmgInbetweenTimer = 0;
+            if (!hasHitAlready)
+            {
+                collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit = true;
                 collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
-
             }
-        }
-        //first time után
-        else
-        {
-            collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
-            collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit = true;
-        }
+            else if (currentDmgInbetweenTimer >= dmgInbetweenTimer)
+            {
+                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
+            }
 
-            
+        }
+       
     }
+
+    
 }
