@@ -12,7 +12,6 @@ public class CommonMovement : MonoBehaviour
 
     private float speed;
 
-    [SerializeField] private GameObject XPpref;
 
     public float Speed { get => speed; set => speed = value; }
 
@@ -25,10 +24,6 @@ public class CommonMovement : MonoBehaviour
             player = GameObject.FindWithTag("Player");
         }
 
-        if (XPpref==null)
-        {
-            XPpref = Resources.Load<GameObject>("xp");
-        }
     }
 
     // Update is called once per frame
@@ -39,17 +34,7 @@ public class CommonMovement : MonoBehaviour
             target: player.transform.position,
             maxDistanceDelta: Speed * Time.deltaTime);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       if(collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
-        {
-            
 
-            Instantiate(XPpref, 
-                position: new Vector2(transform.position.x,transform.position.y - 0.75f), 
-                rotation: Quaternion.identity);
-        } 
-    } 
     
    
 

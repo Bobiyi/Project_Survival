@@ -63,14 +63,14 @@ public class GarlicScript : MonoBehaviour
             if (currentDmgInbetweenTimer >= dmgInbetweenTimer) 
             { 
                 currentDmgInbetweenTimer = 0;
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
 
             }
         }
         //first time után
         else
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
             collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit = true;
         }
 

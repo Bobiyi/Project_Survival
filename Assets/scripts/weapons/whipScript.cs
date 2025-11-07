@@ -41,7 +41,7 @@ public class whipScript : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
         }
     }
 

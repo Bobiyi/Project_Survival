@@ -6,6 +6,7 @@ public class EnemyStatusManager : MonoBehaviour
 {
     [SerializeField] private float hp;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject XPpref;
     //[SerializeField] private float hp;
 
     private bool garlicHasFirstHit;
@@ -29,6 +30,9 @@ public class EnemyStatusManager : MonoBehaviour
         hp -= damage; 
         if(hp <= 0)
         {
+            Instantiate(XPpref,
+                position: new Vector2(transform.position.x, transform.position.y - 0.75f),
+                rotation: Quaternion.identity);
             Destroy(gameObject);
         }
     }
