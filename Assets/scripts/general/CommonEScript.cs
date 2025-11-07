@@ -40,17 +40,19 @@ public class CommonMovement : MonoBehaviour
             target: player.transform.position,
             maxDistanceDelta: Speed * Time.deltaTime);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+       if(collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
         {
-            Destroy(gameObject);
+            
 
             Instantiate(XPpref, 
                 position: new Vector2(transform.position.x,transform.position.y - 0.75f), 
                 rotation: Quaternion.identity);
         } 
-    }
+    } 
+    
+   
+
+        
 }

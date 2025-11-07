@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 452980485551629171}
   - component: {fileID: 6346484714097302193}
   - component: {fileID: 2362397432563905059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: whipPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
