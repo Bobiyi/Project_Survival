@@ -6430,7 +6430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903158903}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1711a842527c2794aa6370246ff33198, type: 3}
   m_Name: 
@@ -6685,6 +6685,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 2113272110}
+  song1: {fileID: 8300000, guid: 947f9a5e060daee4591842078b530583, type: 3}
+  song2: {fileID: 8300000, guid: b2eb2890e61cd634498de62ea1b950d6, type: 3}
+  song3: {fileID: 8300000, guid: 3661100b54efdf645829f47ee64a7fb7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
