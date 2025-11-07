@@ -8,7 +8,7 @@ public class CommonMovement : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
-    //[SerializeField] private PlayerManager playerScript;
+    [SerializeField] private PlayerManager playerScript;
 
     [SerializeField] private float speed = 1f;
 
@@ -39,18 +39,30 @@ public class CommonMovement : MonoBehaviour
             current: transform.position,
             target: player.transform.position,
             maxDistanceDelta: Speed * Time.deltaTime);
+
+        if (Health <= 0f)
+        {
+            Destroy(gameObject);
+
+            Instantiate(XPpref,
+            position: new Vector2(transform.position.x, transform.position.y - 0.75f),
+            rotation: Quaternion.identity);
+        }
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Destroy(gameObject);
+            
+            playerScript = collision.gameObject.GetComponent<PlayerManager>();
 
-            Instantiate(XPpref, 
-                position: new Vector2(transform.position.x,transform.position.y - 0.75f), 
-                rotation: Quaternion.identity);
+            playerScript.TakeDamage(10f);
+
+
+            
         } 
     }
 }
