@@ -10,26 +10,20 @@ public class CommonMovement : MonoBehaviour
 
     //[SerializeField] private PlayerManager playerScript;
 
-    [SerializeField] private float speed = 1f;
+    private float speed;
 
-    [SerializeField] private float health = 50f;
-
-    [SerializeField] private GameObject XPpref;
 
     public float Speed { get => speed; set => speed = value; }
-    public float Health { get => health; set => health = value; }
 
     void Start()
     {
+        speed = GetComponent<EnemyStatusManager>().Speed;
+
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
         }
 
-        if (XPpref==null)
-        {
-            XPpref = Resources.Load<GameObject>("xp");
-        }
     }
 
     // Update is called once per frame
@@ -41,16 +35,8 @@ public class CommonMovement : MonoBehaviour
             maxDistanceDelta: Speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    
+   
 
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            Destroy(gameObject);
-
-            Instantiate(XPpref, 
-                position: new Vector2(transform.position.x,transform.position.y - 0.75f), 
-                rotation: Quaternion.identity);
-        } 
-    }
+        
 }

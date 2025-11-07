@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5296195629346937466}
   - component: {fileID: 1802990395918523852}
   - component: {fileID: 6164501420389881120}
+  - component: {fileID: -7586105143548536147}
   m_Layer: 6
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -116,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -146,11 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 925287311670850120, guid: 09b96a17df3da2341a2de81c3eab7e58, type: 3}
   playerPosition: {fileID: 0}
-  speed: 0.75
   range: 8
   inRange: 1
   fireCD: 3
-  currentCd: 0
 --- !u!50 &6164501420389881120
 Rigidbody2D:
   serializedVersion: 4
@@ -178,3 +177,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-7586105143548536147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6176515101763576815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c0b6e52a9830b45843c2e4c5ee63b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 30
+  speed: 0.75
+  XPpref: {fileID: 3544467816248318788, guid: b13fc7df8df62ad4a8b7d47bbfd2912b, type: 3}
+  sprite: {fileID: 6264632945044379666}

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3092825307221420388}
   - component: {fileID: 1505685708238559677}
   - component: {fileID: 7137850701821437481}
-  m_Layer: 0
+  - component: {fileID: -7213020124258171523}
+  m_Layer: 6
   m_Name: TankEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,3 +175,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7213020124258171523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781552956528924186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c0b6e52a9830b45843c2e4c5ee63b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 150
+  speed: 0.67
+  XPpref: {fileID: 3544467816248318788, guid: b13fc7df8df62ad4a8b7d47bbfd2912b, type: 3}
+  sprite: {fileID: 296580728971387077}

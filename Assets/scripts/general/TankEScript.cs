@@ -7,11 +7,13 @@ public class TnakMovement : MonoBehaviour
     public GameObject playerPosition;
 
 
-    public float speed = 1f;
+    public float speed;
 
     [SerializeField] public int damage = 10;
     void Start()
     {
+        speed = GetComponent<EnemyStatusManager>().Speed;
+
         if (playerPosition == null)
         {
             playerPosition = GameObject.FindWithTag("Player");
