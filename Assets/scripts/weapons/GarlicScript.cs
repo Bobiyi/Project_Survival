@@ -13,23 +13,22 @@ public class GarlicScript : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private CircleCollider2D Collider;
 
-    private float currentDmgInbetweenTimer;
+    public float GetDamage { get => damage; set => damage = value; }
+    public float DmgInbetweenTimer { get => dmgInbetweenTimer; set => dmgInbetweenTimer = value; }
+
     // Start is called before the first frame update
     void Start()
     {
         Enabled = true;
         Collider = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        AreaUpdate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Enabled) { 
-            currentDmgInbetweenTimer += Time.deltaTime;
-            AreaUpdate();
-        }
-        else
+        if (!Enabled)
         {
             Collider.radius = 0;
             sprite.transform.localScale = new Vector2(0,0);
@@ -50,18 +49,19 @@ public class GarlicScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy")){
-            bool hasHitAlready = collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit;
-
-            if (!hasHitAlready)
+            EnemyStatusManager enemyScript = collision.gameObject.GetComponent<EnemyStatusManager>();
+            if (enemyScript.GarlicHasFirstHit)
             {
-                collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit = true;
-                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
+                enemyScript.Damaged(damage);
+                enemyScript.GarlicHasFirstHit = false;
+                enemyScript.GarlicCurrentTime = 0;
             }
-            else if (currentDmgInbetweenTimer >= dmgInbetweenTimer)
+            if (enemyScript.GarlicCurrentTime >= enemyScript.GarlicTimer)
             {
-                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
-            }
+                enemyScript.Damaged(damage);
+                enemyScript.GarlicCurrentTime = 0;
 
+            }
         }
        
     }

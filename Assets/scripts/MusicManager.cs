@@ -54,7 +54,7 @@ public class MusicManager : MonoBehaviour
         AudioClip newSong = (AudioClip)songs[Random.Range(0, songs.Count)];
         if (!newSong.name.Equals(currentSong))
         {
-            Debug.Log(previousSong + " : " + newSong.name);
+            Debug.Log("Current song: " + newSong.name);
             audioSource.clip = newSong;
             audioSource.Play();
             currentSong = newSong.name;

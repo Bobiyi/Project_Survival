@@ -8,19 +8,27 @@ public class EnemyStatusManager : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject XPpref;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private GameObject player;
 
-    //[SerializeField] private float hp;
 
+    private GarlicScript garlic;
     private Color originalColor;
     private bool garlicHasFirstHit;
+    private float garlicTimer;
+    private float garlicCurrentTime = 0;
 
     public bool GarlicHasFirstHit { get => garlicHasFirstHit; set => garlicHasFirstHit = value; }
     public float Speed { get => speed; set => speed = value; }
+    public float GarlicTimer { get => garlicTimer; set => garlicTimer = value; }
+    public float GarlicCurrentTime { get => garlicCurrentTime; set => garlicCurrentTime = value; }
 
     // Start is called before the first frame update
     void Start()
     {
 
+        player = GameObject.Find("Player");
+        garlic = player.GetComponentInChildren<GarlicScript>();
+        GarlicTimer = garlic.DmgInbetweenTimer;
         GarlicHasFirstHit = false;
         originalColor = sprite.color;
     }
@@ -28,7 +36,12 @@ public class EnemyStatusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!(GarlicCurrentTime >= GarlicTimer))
+        {
+            GarlicCurrentTime += Time.deltaTime;
+        }
+  
+
     }
   
     public void Damaged(float damage)
