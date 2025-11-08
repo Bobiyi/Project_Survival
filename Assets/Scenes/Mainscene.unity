@@ -5471,6 +5471,7 @@ GameObject:
   - component: {fileID: 907627674}
   - component: {fileID: 907627673}
   - component: {fileID: 907627675}
+  - component: {fileID: 907627676}
   m_Layer: 8
   m_Name: Garlic
   m_TagString: Untagged
@@ -5487,8 +5488,8 @@ Transform:
   m_GameObject: {fileID: 907627671}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -0.09, z: -0.0254}
-  m_LocalScale: {x: 5.643435, y: 5.643435, z: 5.643435}
+  m_LocalPosition: {x: 0.03, y: 0.33, z: -0.0254}
+  m_LocalScale: {x: 7.867328, y: 7.3608475, z: 30.695776}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 696249929}
@@ -5599,6 +5600,28 @@ MonoBehaviour:
   dmgInbetweenTimer: 0.6
   sprite: {fileID: 907627673}
   Collider: {fileID: 0}
+  animator: {fileID: 907627676}
+--- !u!95 &907627676
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907627671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1692b4fba022c3949a9c51395f376e53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &984512679
 GameObject:
   m_ObjectHideFlags: 0

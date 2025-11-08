@@ -12,7 +12,7 @@ public class GarlicScript : MonoBehaviour
     [SerializeField] private float dmgInbetweenTimer;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private CircleCollider2D Collider;
-
+    [SerializeField] private Animator animator;
     public float GetDamage { get => damage; set => damage = value; }
     public float DmgInbetweenTimer { get => dmgInbetweenTimer; set => dmgInbetweenTimer = value; }
 
@@ -42,8 +42,8 @@ public class GarlicScript : MonoBehaviour
     void AreaUpdate()
     {
         
-        Collider.radius = baseArea/8 * areaMultiplier;
-        sprite.transform.localScale = new Vector2(baseArea*2*areaMultiplier, baseArea*2*areaMultiplier);
+        Collider.radius = (baseArea * areaMultiplier)*0.16f;
+        sprite.transform.localScale = new Vector2(baseArea*4*areaMultiplier, baseArea*4*areaMultiplier);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
