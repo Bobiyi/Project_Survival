@@ -10,6 +10,7 @@ public class whipScript : MonoBehaviour
     [SerializeField] private float onScreenTime;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private float knockback;
 
     private float currentAS;
     private float currentOnScreen;
@@ -41,7 +42,7 @@ public class whipScript : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
+            collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage, knockback);
         }
     }
 

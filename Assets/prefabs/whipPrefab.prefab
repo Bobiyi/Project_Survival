@@ -96,6 +96,7 @@ MonoBehaviour:
   onScreenTime: 0.5
   boxCollider: {fileID: 452980485551629171}
   sprite: {fileID: 2362397432563905059}
+  knockback: 100
 --- !u!212 &2362397432563905059
 SpriteRenderer:
   m_ObjectHideFlags: 0

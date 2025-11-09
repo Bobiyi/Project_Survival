@@ -52,13 +52,13 @@ public class GarlicScript : MonoBehaviour
             EnemyStatusManager enemyScript = collision.gameObject.GetComponent<EnemyStatusManager>();
             if (enemyScript.GarlicHasFirstHit)
             {
-                enemyScript.Damaged(damage);
+                enemyScript.Damaged(damage, 0f);
                 enemyScript.GarlicHasFirstHit = false;
                 enemyScript.GarlicCurrentTime = 0;
             }
             if (enemyScript.GarlicCurrentTime >= enemyScript.GarlicTimer)
             {
-                enemyScript.Damaged(damage);
+                enemyScript.Damaged(damage, 0f);
                 enemyScript.GarlicCurrentTime = 0;
 
             }

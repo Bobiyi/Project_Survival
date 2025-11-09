@@ -44,7 +44,7 @@ public class EnemyStatusManager : MonoBehaviour
 
     }
   
-    public void Damaged(float damage)
+    public void Damaged(float damage, float knockbackStrenght)
     {
         hp -= damage; 
         if(hp <= 0)
@@ -58,8 +58,17 @@ public class EnemyStatusManager : MonoBehaviour
         else
         {
             StartCoroutine(ColorChange());
+            //Knockback(knockbackStrenght);
         }
     }
+    /*public void Knockback(float strenght)
+    {
+        if(strenght != 0)
+        {
+            Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+            body.transform.position = Vector2.Lerp(transform.position, new Vector2(10, 10), 10f * Time.deltaTime);
+        }
+    }*/
 
     IEnumerator ColorChange()
     {
