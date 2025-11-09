@@ -12,24 +12,23 @@ public class GarlicScript : MonoBehaviour
     [SerializeField] private float dmgInbetweenTimer;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private CircleCollider2D Collider;
+    [SerializeField] private Animator animator;
+    public float GetDamage { get => damage; set => damage = value; }
+    public float DmgInbetweenTimer { get => dmgInbetweenTimer; set => dmgInbetweenTimer = value; }
 
-    private float currentDmgInbetweenTimer;
     // Start is called before the first frame update
     void Start()
     {
         Enabled = true;
         Collider = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        AreaUpdate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Enabled) { 
-            currentDmgInbetweenTimer += Time.deltaTime;
-            AreaUpdate();
-        }
-        else
+        if (!Enabled)
         {
             Collider.radius = 0;
             sprite.transform.localScale = new Vector2(0,0);
@@ -43,25 +42,26 @@ public class GarlicScript : MonoBehaviour
     void AreaUpdate()
     {
         
-        Collider.radius = baseArea/8 * areaMultiplier;
-        sprite.transform.localScale = new Vector2(baseArea*2*areaMultiplier, baseArea*2*areaMultiplier);
+        Collider.radius = (baseArea * areaMultiplier)*0.16f;
+        sprite.transform.localScale = new Vector2(baseArea*4*areaMultiplier, baseArea*4*areaMultiplier);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy")){
-            bool hasHitAlready = collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit;
-
-            if (!hasHitAlready)
+            EnemyStatusManager enemyScript = collision.gameObject.GetComponent<EnemyStatusManager>();
+            if (enemyScript.GarlicHasFirstHit)
             {
-                collision.gameObject.GetComponent<EnemyStatusManager>().GarlicHasFirstHit = true;
-                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
+                enemyScript.Damaged(damage, 0f);
+                enemyScript.GarlicHasFirstHit = false;
+                enemyScript.GarlicCurrentTime = 0;
             }
-            else if (currentDmgInbetweenTimer >= dmgInbetweenTimer)
+            if (enemyScript.GarlicCurrentTime >= enemyScript.GarlicTimer)
             {
-                collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage);
-            }
+                enemyScript.Damaged(damage, 0f);
+                enemyScript.GarlicCurrentTime = 0;
 
+            }
         }
        
     }

@@ -145,7 +145,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2864126995660985376}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -194,3 +194,4 @@ MonoBehaviour:
   speed: 1
   XPpref: {fileID: 3544467816248318788, guid: b13fc7df8df62ad4a8b7d47bbfd2912b, type: 3}
   sprite: {fileID: 5984615119888783915}
+  player: {fileID: 0}
