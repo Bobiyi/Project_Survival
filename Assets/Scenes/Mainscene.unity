@@ -5897,6 +5897,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2524591017260169961, guid: 8d1d56da6d3cfee49afbe5f62b776061, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2864126995660985376, guid: 8d1d56da6d3cfee49afbe5f62b776061, type: 3}
       propertyPath: m_Name
       value: CommonEnemy
