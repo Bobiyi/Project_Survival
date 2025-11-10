@@ -65,11 +65,17 @@ public class WhipManager : MonoBehaviour
     void Hit()
     {
         OffsetCalculator();
+
+        bool spriteflipped = false;
+        if (xOffset < 0)
+        {
+            spriteflipped = true;
+        }
         Instantiate(
         original: whipProjectile,
         position: new Vector3(transform.position.x + xOffset, transform.position.y + yOffset),
         rotation: Quaternion.identity
-        );
+        ).GetComponent<SpriteRenderer>().flipX = spriteflipped;
     }
 
     void OffsetCalculator()
