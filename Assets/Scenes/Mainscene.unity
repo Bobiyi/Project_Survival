@@ -6495,7 +6495,7 @@ GameObject:
   - component: {fileID: 1907118497}
   - component: {fileID: 1907118496}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6819,9 +6819,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 984512684}
+  - {fileID: 1907118499}
   - {fileID: 720100306}
   - {fileID: 1333560818}
   - {fileID: 447074643}
-  - {fileID: 1907118499}
   - {fileID: 548380711}
   - {fileID: 2033833508}
