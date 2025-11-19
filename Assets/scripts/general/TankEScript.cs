@@ -7,7 +7,7 @@ public class TnakMovement : MonoBehaviour
     public GameObject playerPosition;
 
 
-    public float speed;
+    private float speed;
 
     [SerializeField] public int damage = 10;
     void Start()

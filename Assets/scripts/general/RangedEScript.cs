@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedMovement : MonoBehaviour
+public class RangedEnemyScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject playerPosition;
+    [SerializeField] private GameObject player;
     private float speed;
 
     [SerializeField] private float range = 10f;
@@ -20,9 +20,9 @@ public class RangedMovement : MonoBehaviour
     void Start()
     {
         speed = GetComponent<EnemyStatusManager>().Speed;
-        if (playerPosition == null)
+        if (player == null)
         {
-            playerPosition = GameObject.FindWithTag("Player");
+            player = GameObject.FindWithTag("Player");
         }
 
         if (projectilePrefab == null)
@@ -33,10 +33,10 @@ public class RangedMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        Vector2 direction = ((Vector2)playerPosition.transform.position - (Vector2)transform.position).normalized;
+        Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
 
         int playerLayer = LayerMask.GetMask("Player");
 
@@ -49,7 +49,7 @@ public class RangedMovement : MonoBehaviour
 
         inRange = hit.collider != null && hit.collider.CompareTag("Player");
 
-        if (inRange)
+        if (inRange || Vector2.Distance(player.transform.position,transform.position)<10f)
         {
             if (currentCd >= fireCD)
             {
@@ -70,10 +70,14 @@ public class RangedMovement : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(
-        current: transform.position,
-        target: playerPosition.transform.position,
-        maxDistanceDelta: speed * Time.deltaTime);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if(rb != null)
+        {
+            Vector2 next = Vector2.MoveTowards(rb.position,player.transform.position,speed*Time.deltaTime);
+            rb.MovePosition(next);
+        }
+
     }
 
     private void Shoot()
@@ -82,16 +86,6 @@ public class RangedMovement : MonoBehaviour
             original: projectilePrefab,
             position: transform.position,
             rotation: transform.rotation);
-    }
-
-    public void setSpeed(float speed)
-    {
-        this.speed = speed;
-    }
-
-    public float getSpeed()
-    {
-        return speed;
     }
 
     private void OnDrawGizmosSelected()
@@ -107,7 +101,7 @@ public class RangedMovement : MonoBehaviour
         }
 
 
-            Gizmos.DrawLine(from: transform.position, to: playerPosition.transform.position);
+            Gizmos.DrawLine(from: transform.position, to: player.transform.position);
     }
 }
 

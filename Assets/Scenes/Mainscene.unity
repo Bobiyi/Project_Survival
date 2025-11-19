@@ -5609,7 +5609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enabled: 0
-  damage: 10
+  damage: 0
   baseArea: 3
   areaMultiplier: 1
   dmgInbetweenTimer: 0.6
@@ -5666,7 +5666,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984512679}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -6482,6 +6482,7 @@ MonoBehaviour:
   projectileCount: 3
   character: {fileID: 984512679}
   level: 0
+  knockback: 0.5
 --- !u!1 &1907118495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,6 +6823,6 @@ SceneRoots:
   - {fileID: 1907118499}
   - {fileID: 720100306}
   - {fileID: 1333560818}
-  - {fileID: 447074643}
   - {fileID: 548380711}
   - {fileID: 2033833508}
+  - {fileID: 447074643}

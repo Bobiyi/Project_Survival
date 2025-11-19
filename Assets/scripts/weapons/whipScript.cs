@@ -10,7 +10,7 @@ public class whipScript : MonoBehaviour
     [SerializeField] private float onScreenTime;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private float knockback;
+    private float knockback;
 
     private float currentAS;
     private float currentOnScreen;
@@ -44,6 +44,11 @@ public class whipScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyStatusManager>().Damaged(damage, knockback);
         }
+    }
+
+    public void setKnockback(float knockback)
+    {
+        this.knockback = knockback;
     }
 
 

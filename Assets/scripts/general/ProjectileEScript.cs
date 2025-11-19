@@ -60,9 +60,4 @@ public class ProjectileMovement : MonoBehaviour
 
         transform.position += (Vector3)(MovementDirection * speed * Time.deltaTime);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
 }

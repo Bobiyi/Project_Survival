@@ -10,6 +10,7 @@ public class WhipManager : MonoBehaviour
     [SerializeField] private float projectileCount;
     [SerializeField] private GameObject character;
     [SerializeField] private float level;
+    [SerializeField] private float knockback;
 
 
     private float currentProjectileInbetween;
@@ -71,11 +72,18 @@ public class WhipManager : MonoBehaviour
         {
             spriteflipped = true;
         }
-        Instantiate(
+        var whipInstance =Instantiate(
         original: whipProjectile,
         position: new Vector3(transform.position.x + xOffset, transform.position.y + yOffset),
         rotation: Quaternion.identity
-        ).GetComponent<SpriteRenderer>().flipX = spriteflipped;
+        );
+
+        var sr = whipInstance.GetComponent<SpriteRenderer>();
+        if (sr != null) sr.flipX = spriteflipped;
+
+        var ws = whipInstance.GetComponent<whipScript>();
+        if (ws != null) ws.setKnockback(knockback);
+        
     }
 
     void OffsetCalculator()

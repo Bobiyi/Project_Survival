@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class EnemyStatusManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class EnemyStatusManager : MonoBehaviour
     private float garlicTimer;
     private float garlicCurrentTime = 0;
 
+
+    public bool IsKnockedBack { get; private set; }
     public bool GarlicHasFirstHit { get => garlicHasFirstHit; set => garlicHasFirstHit = value; }
     public float Speed { get => speed; set => speed = value; }
     public float GarlicTimer { get => garlicTimer; set => garlicTimer = value; }
@@ -62,21 +65,46 @@ public class EnemyStatusManager : MonoBehaviour
             Knockback(knockbackStrenght);
         }
     }
-    public void Knockback(float strenght)
+    public void Knockback(float strength)
     {
-        if(strenght != 0)
+        if (strength == 0 || player == null) return;
+        
+        Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
+
+
+        if (body == null)
         {
-            Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
-            body.AddForce(new Vector2(100f,100f));
+            Debug.LogWarning("[EnemyStatusManager] No Rigidbody2D on " + name, this);
+            return;
         }
+
+        Vector2 direction = (transform.position - player.transform.position).normalized;
+        if (!IsKnockedBack)
+        {
+            body.velocity = direction * strength;
+            StartCoroutine(KnockbackTimer(0.7f, body));
+        }
+
+            var ai = GetComponent<EnemyMovementScript>();
+            if (ai != null) ai.DisableMovement(0.7f);
+        
+    }
+
+    private IEnumerator KnockbackTimer(float duration, Rigidbody2D body)
+    {
+        IsKnockedBack = true;
+        yield return new WaitForSeconds(duration);
+        // stop residual sliding
+        if (body != null)
+        {
+            body.velocity = Vector2.zero;
+        }
+        IsKnockedBack = false;
     }
 
     IEnumerator ColorChange()
     {
-        sprite.color = new Color(
-            r: 255,
-            g: 0,
-            b: 0);
+        sprite.color = Color.red;
 
         yield return new WaitForSeconds(0.5f);
 
