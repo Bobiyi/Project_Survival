@@ -71,16 +71,21 @@ public class EnemyStatusManager : MonoBehaviour
         
         Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
 
+        Vector2 direction = (transform.position - player.transform.position).normalized;
 
         if (body == null)
         {
             Debug.LogWarning("[EnemyStatusManager] No Rigidbody2D on " + name, this);
-            return;
+
+            Vector2.MoveTowards(transform.position,direction,strength);
+            StartCoroutine(KnockbackTimer(0.7f, body));
+
         }
 
-        Vector2 direction = (transform.position - player.transform.position).normalized;
+        
         if (!IsKnockedBack)
         {
+
             body.velocity = direction * strength;
             StartCoroutine(KnockbackTimer(0.7f, body));
         }

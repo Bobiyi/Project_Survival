@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7586105143548536147}
   m_Layer: 6
   m_Name: RangedEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 925287311670850120, guid: 09b96a17df3da2341a2de81c3eab7e58, type: 3}
-  playerPosition: {fileID: 0}
+  player: {fileID: 0}
   range: 8
   inRange: 1
   fireCD: 3
@@ -193,3 +193,4 @@ MonoBehaviour:
   speed: 0.75
   XPpref: {fileID: 3544467816248318788, guid: b13fc7df8df62ad4a8b7d47bbfd2912b, type: 3}
   sprite: {fileID: 6264632945044379666}
+  player: {fileID: 0}

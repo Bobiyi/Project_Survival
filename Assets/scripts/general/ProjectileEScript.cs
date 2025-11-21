@@ -5,14 +5,15 @@ using UnityEngine.Windows.Speech;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    public Transform LatestPosition;
+    [SerializeField] private Transform LatestPosition;
 
-    public float speed = 1f;
+    [SerializeField] private float speed = 1f;
 
-    private PlayerManager PlayerManagerScript;
+    [SerializeField] private PlayerManager PlayerManagerScript;
 
     [SerializeField] private Vector2 MovementDirection;
     [SerializeField] private float distanceToPlayer;
+    [SerializeField] private float deadZone;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class ProjectileMovement : MonoBehaviour
             b: LatestPosition.position
             );
 
-        if (distanceToPlayer > 25f)
+        if (distanceToPlayer > deadZone)
         {
             Destroy(gameObject);
 

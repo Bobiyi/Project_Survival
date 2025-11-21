@@ -139,6 +139,7 @@ MonoBehaviour:
   speed: 4
   MovementDirection: {x: 0, y: 0}
   distanceToPlayer: 0
+  deadZone: 25
 --- !u!1 &2390907759994004684
 GameObject:
   m_ObjectHideFlags: 0
