@@ -563,11 +563,11 @@ PrefabInstance:
       objectReference: {fileID: 984512679}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.58
+      value: 7.61
       objectReference: {fileID: 0}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.29
+      value: 5.06
       objectReference: {fileID: 0}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6086,6 +6086,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71cffb50340fcc41bd803d7a2c45d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 677818672243899939, guid: 4348f4229db6d8d4aabe9a886d7399e0, type: 3}
+  damage: 0
+  knockback: 0
+  attackSpeed: 4
 --- !u!1 &1412114494
 GameObject:
   m_ObjectHideFlags: 0
@@ -6264,12 +6268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  enemyStatusManager: {fileID: 0}
   magicWandScript: {fileID: 0}
   damage: 0
   knockback: 0
   speed: 0
-  distanceToPlayer: 0
   deadZone: 0
 --- !u!212 &1539910959
 SpriteRenderer:

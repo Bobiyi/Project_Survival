@@ -12,11 +12,11 @@ public class MagicWandProjectileScript : MonoBehaviour
     
     [SerializeField] private float damage;
     [SerializeField] private float knockback;
-    [SerializeField] private float speed=7f;
+    [SerializeField] private float speed;
 
     private Vector2 MovementDirection;
     private float distanceToPlayer;
-    [SerializeField] private float deadZone;
+    [SerializeField] private float deadZone=30f;
     private GameObject player;
 
 
@@ -54,8 +54,6 @@ public class MagicWandProjectileScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        Debug.Log("[Projectile] Distance to Player:" + distanceToPlayer, this);
 
         transform.position += (Vector3)(MovementDirection * speed * Time.deltaTime);
 
