@@ -563,11 +563,11 @@ PrefabInstance:
       objectReference: {fileID: 984512679}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.58
+      value: 7.11
       objectReference: {fileID: 0}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.29
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 3303290924904722399, guid: d4672c768660e2f47b20ec4f4750a8e2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -641,7 +641,11 @@ Transform:
   m_Children:
   - {fileID: 1903158904}
   - {fileID: 907627672}
+<<<<<<< Updated upstream
   - {fileID: 1382420511}
+=======
+  - {fileID: 780778118}
+>>>>>>> Stashed changes
   m_Father: {fileID: 984512684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720100303
@@ -5475,6 +5479,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &780778117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780778118}
+  - component: {fileID: 780778119}
+  m_Layer: 7
+  m_Name: NitroExpress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780778118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780778117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 696249929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780778119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780778117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d3e1f15ee915043b7959ec30800cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nitroShotPrefab: {fileID: 6250779944239036655, guid: 95301d37f62f9ec4794e621cbc1350b7, type: 3}
+  damage: 90
+  cooldown: 0.67
 --- !u!1 &907627671
 GameObject:
   m_ObjectHideFlags: 0
