@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class GarlicScript : MonoBehaviour, weapon
 {
-    [SerializeField] private bool Enabled;
-    [SerializeField] private float damage;
+    private float level;
+    [SerializeField] private float baseDamage;
+    [SerializeField] private float baseAreaMultiplier;
+    [SerializeField] private float baseDmgInbetween;
+
+     private float damage;
     [SerializeField] private float baseArea;
-    [SerializeField] private float areaMultiplier;
-    [SerializeField] private float dmgInbetweenTimer;
+     private float areaMultiplier;
+     private float dmgInbetweenTimer;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private CircleCollider2D Collider;
     [SerializeField] private Animator animator;
@@ -18,20 +22,20 @@ public class GarlicScript : MonoBehaviour, weapon
     // Start is called before the first frame update
     void Start()
     {
-        Enabled = true;
+        level = 0;
+        damage = baseDamage;
+        dmgInbetweenTimer = baseDmgInbetween;
+        areaMultiplier = baseAreaMultiplier;
         Collider = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        AreaUpdate();
+        Collider.radius = 0;
+        sprite.transform.localScale = new Vector2(0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Enabled)
-        {
-            Collider.radius = 0;
-            sprite.transform.localScale = new Vector2(0,0);
-        }
+        
 
 
 
@@ -67,6 +71,21 @@ public class GarlicScript : MonoBehaviour, weapon
 
     public void lvlup(int lvls)
     {
-        throw new System.NotImplementedException();
+        float startinglevel = level;
+        for (; level <= startinglevel + lvls; level++)
+        {
+            switch (level)
+            {
+                case 1: enabled = true; damage = baseDamage; dmgInbetweenTimer = baseDmgInbetween;  areaMultiplier = baseAreaMultiplier; break;
+                case 2: areaMultiplier *= 1.4f; damage+=2 ; break;
+                case 3: damage += 1; dmgInbetweenTimer-=0.1f ; break;
+                case 4: areaMultiplier *= 1.2f; damage+=1 ; break;
+                case 5: damage += 2; dmgInbetweenTimer -= 0.1f; break;
+                case 6: areaMultiplier *= 1.2f; damage += 1; break;
+                case 7: damage += 1; dmgInbetweenTimer -= 0.1f; break;
+                case 8: areaMultiplier *= 1.2f; damage += 1; break;
+            }
+        }
+        AreaUpdate();
     }
 }

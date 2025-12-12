@@ -29,7 +29,7 @@ public class XpScript : MonoBehaviour
 
             playerScript.XP += 10;
 
-            GameObject.Find("Whip").GetComponent<WhipManager>().lvlup(1);
+            GameObject.Find("Garlic").GetComponent<GarlicScript>().lvlup(1);
 
             Debug.Log("XP gained");
         }

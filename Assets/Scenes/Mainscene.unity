@@ -5609,11 +5609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c792077623b18614f861a9f5064f743c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enabled: 0
-  damage: 0
-  baseArea: 3
-  areaMultiplier: 1
-  dmgInbetweenTimer: 0.6
+  baseDamage: 10
+  baseAreaMultiplier: 1
+  baseDmgInbetween: 1.3
+  baseArea: 2
   sprite: {fileID: 907627673}
   Collider: {fileID: 0}
   animator: {fileID: 907627676}
