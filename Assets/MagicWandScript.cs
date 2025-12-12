@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicWandScript : MonoBehaviour
+public class MagicWandScript : MonoBehaviour, weapon
 {
     [SerializeField] private GameObject projectilePrefab;
 
@@ -39,5 +39,10 @@ public class MagicWandScript : MonoBehaviour
         Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         
 
+    }
+
+    public void lvlup(int lvls)
+    {
+        throw new NotImplementedException();
     }
 }

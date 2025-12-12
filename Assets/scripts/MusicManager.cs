@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip song3;
     private ArrayList songs = new ArrayList();
     private string currentSong;
-    private string previousSong;
+    //private string previousSong;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour
         songs.Add(song2);
         songs.Add(song3);
 
-        previousSong = null;
+        //previousSong = null;
         NewMusic();
 
     }

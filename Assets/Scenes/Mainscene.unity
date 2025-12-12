@@ -6628,12 +6628,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1711a842527c2794aa6370246ff33198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDmg: 50
+  baseProjectileCount: 1
+  baseSizeMult: 1
   whipProjectile: {fileID: 6014389782532629805, guid: ec563b8cb8c1ff34ca02c981eb8403e0, type: 3}
   projectileInbetween: 0.34
   burstInbetween: 3
-  projectileCount: 3
   character: {fileID: 984512679}
-  level: 0
+  level: 1
   knockback: 0.5
 --- !u!1 &1907118495
 GameObject:

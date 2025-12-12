@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarlicScript : MonoBehaviour
+public class GarlicScript : MonoBehaviour, weapon
 {
     [SerializeField] private bool Enabled;
     [SerializeField] private float damage;
@@ -65,5 +65,8 @@ public class GarlicScript : MonoBehaviour
        
     }
 
-    
+    public void lvlup(int lvls)
+    {
+        throw new System.NotImplementedException();
+    }
 }

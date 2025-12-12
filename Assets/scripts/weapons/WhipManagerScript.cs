@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhipManager : MonoBehaviour
+public class WhipManager : MonoBehaviour, weapon
 {
+    [SerializeField] private float baseDmg;
+    [SerializeField] private float baseProjectileCount;
+    [SerializeField] private float baseSizeMult;
+
+
     [SerializeField] private GameObject whipProjectile;
     [SerializeField] private float projectileInbetween;
     [SerializeField] private float burstInbetween;
-    [SerializeField] private float projectileCount;
+    private float currDmg;
+    private float projectileCount;
+    private float currSizeMult;
     [SerializeField] private GameObject character;
     [SerializeField] private float level;
     [SerializeField] private float knockback;
@@ -21,8 +28,16 @@ public class WhipManager : MonoBehaviour
     private float yOffset;
     private bool mainCharacterFLipped;
 
+    public float BaseSizeMult { get => baseSizeMult; set => baseSizeMult = value; }
+    public float BaseDmg { get => baseDmg; set => baseDmg = value; }
+    public float CurrDmg { get => currDmg; set => currDmg = value; }
+    public float CurrSizeMult { get => currSizeMult; set => currSizeMult = value; }
+
     void Start()
     {
+        currSizeMult = baseSizeMult;
+        currDmg = baseDmg;
+        projectileCount = baseProjectileCount;
         currentProjectileInbetween = projectileInbetween;
         currentBurstInbetween = burstInbetween;
         alreadyHit = 0;
@@ -105,5 +120,22 @@ public class WhipManager : MonoBehaviour
             xOffset *= -1;
         }
     }
-    
+
+    public void lvlup(int lvls)
+    {
+        float startinglevel = level;
+        for (;level <= startinglevel + lvls;level++)
+        {
+            switch (level)
+            {
+                case 2: projectileCount++   ; break;
+                case 3: currDmg += 5; break;
+                case 4: currSizeMult *= 1.10f; currDmg+=5 ; break;
+                case 5: currDmg += 5; break;
+                case 6: currSizeMult *= 1.10f; currDmg += 5; break;
+                case 7: currDmg += 5; break;
+                case 8: currDmg += 5; break;     
+            }
+       }
+    }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class whipScript : MonoBehaviour
 {
-    [SerializeField] private float damage;
-    [SerializeField] private float areaMultiplier;
+    private float damage;
+    private float areaMultiplier;
     [SerializeField] private float onScreenTime;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private SpriteRenderer sprite;
@@ -17,6 +17,10 @@ public class whipScript : MonoBehaviour
 
     private void Start()
     {
+        WhipManager manager = GameObject.Find("Whip").GetComponent<WhipManager>();
+        damage = manager.CurrDmg;
+        areaMultiplier = manager.BaseSizeMult;
+
         currentOnScreen = 0;
         Vector2 whipSize = new Vector2(
             x: 4.5f * areaMultiplier, 
