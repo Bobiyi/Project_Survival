@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject DamageText_Canvas;
     private Text DamageText;
 
+
+    private LevelUpMenu LevelUpMenuScript;
     /**private ParticleSystem particles;
 
     private SpriteRenderer sprite;*/
@@ -39,7 +41,9 @@ public class PlayerManager : MonoBehaviour
 
         DamageText.text = Damage.ToString();
 
-        
+        LevelUpMenuScript = GameObject.FindAnyObjectByType<LevelUpMenu>();
+
+
     }
 
     private void Update()
@@ -47,6 +51,10 @@ public class PlayerManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             SetDamage(10);
+        }
+        if(xp >= 100)
+        {
+            LevelUpMenuScript.levelUp();
         }
     }
 

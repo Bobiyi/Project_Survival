@@ -27,7 +27,7 @@ public class XpScript : MonoBehaviour
 
             Destroy(gameObject);
 
-            playerScript.XP += 10;
+            playerScript.XP += 50;
 
             GameObject.Find("Garlic").GetComponent<GarlicScript>().lvlup(1);
 
