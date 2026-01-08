@@ -40,14 +40,14 @@ public class LevelUpMenu : MonoBehaviour
             menuActive = true;
             canvas.enabled = menuActive;
         }
-        else if (Input.GetKeyDown(KeyCode.L) && menuActive)
+        else*/ if (Input.GetKeyDown(KeyCode.L) && menuActive)
         {
             //TOVÁBB
             Time.timeScale = 1f;
             menuActive = false;
             canvas.enabled = menuActive;
         }
-        */
+        
     }
 
     public void levelUp()
